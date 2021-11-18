@@ -3,102 +3,72 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './form.css'
 import { Row, Col, Container, Button, Form, InputGroup } from 'react-bootstrap';
 import { BsArrowRight } from 'react-icons/bs';
+import { Formik,ErrorMessage } from 'formik';
+import * as yup from 'yup';
+import TextField from './textFieldForm'
+import TextFieldPhone from './textFieldPhone'
+
 const FormPage = (props) => {
-    const [validated, setValidated] = useState(false);
 
-    
-    
+    const Schema = yup.object().shape({
+        firstName: yup.string()
+            .required('This field is required'),
+        lastName: yup.string()
+            .required('This field is required'),
+        phone: yup.string()
+            .required('Email must be valid'),
+        email: yup.string().email('Email must be valid').required('Email must be valid'),
+    });
 
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-
-        setValidated(true);
-    };
+  
 
     return (
         <Container className="form-container">
-            <Form className="form-validate" noValidate validated={validated} onSubmit={handleSubmit}>
-                <Row className="mb-3">
-                    <Col sm={6}>
-                        <Form.Group md="4" controlId="validationCustom01">
-                            <Form.Label className="label">First name</Form.Label>
-                            <Form.Control
-                                required
-                                type="text"
-                                placeholder="First name"
-                            />
-                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                        </Form.Group>
-                    </Col>
-                    <Col sm={6}>
 
-                        <Form.Group md="4" controlId="validationCustom02">
-                            <Form.Label className="label">Last name</Form.Label>
-                            <Form.Control
-                                required
-                                type="text"
-                                placeholder="Last name"
-                            />
-                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                        </Form.Group>
-                    </Col>
-                </Row>
+              <Formik
+                                    initialValues={{
+                                        firstName: '',
+                                        lastName: '',
+                                        email: '',
+                                        phone: '',
+                                    }}
 
-                <Row className="mb-3">
-                    <Col sm={12}>
-                        <Form.Group md="4" controlId="validationCustom01">
-                            <Form.Label className="label">Email</Form.Label>
-                            <Form.Control
-                                required
-                                type="email"
-                                placeholder="First name"
-                            />
-                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                        </Form.Group>
+                                    onSubmit={values => {
+                                        console.log("Form Data", values)
 
-                    </Col>
-                </Row>
+                                    }}
+                                    validationSchema={Schema}
+                                >
 
-                <Row className="mb-3">
-                    <Col sm={12}>
-                        <Form.Group md="4" controlId="validationCustom01">
-                            <Form.Label className="label">Phone Number</Form.Label>
-                            <Form.Control
-                                required
-                                type="tel"
-                                placeholder="+1"
-                                onKeyPress={(event) => {
-                                    if (!/[0-9]/.test(event.key)) {
-                                      event.preventDefault();
-                                    }
-                                  }}
-                            />
-                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                        </Form.Group>
+                                    {formik => (
+                              <Form onSubmit={formik.handleSubmit} className="form-validate">
+                                           <div className="form-inputs">
+                                                <div className="right">
 
-                    </Col>
-                </Row>
+                                                    <TextField label="First Name *" type="text" name="firstName" placeholder="First Name" />
+                                                </div>
+                                                <div className="left">
+                                                    <TextField label="Last Name *" type="text" name="lastName" placeholder="Last Name" />
+                                                </div>
 
-                <Row className="mb-3">
-                    <Col sm={12}>
-                        <Form.Group md="4" controlId="validationCustom01">
-                            <Form.Label className="label">Who is your ideal audience?</Form.Label>
-                            <Form.Control as="textarea" rows={3} placeholder="Tell us more about what you are loking for ..." />
-                        </Form.Group>
+                                            </div>
+                                            <TextField label="Email *" type="text" name="email" placeholder="Email" />
+                                            <TextFieldPhone label="Phone *" type="tel" name="phone" placeholder="+1" />
 
-                    </Col>
-                </Row>
-
-
-                <Button type="submit" className="view-pricing">{props.btnName} <span> <BsArrowRight /> </span> </Button>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check className="check-box" disabled type="checkbox" label="Exact Data has permission to contact me with information related to this service." />
-                </Form.Group>
-            </Form>
+                                            
+                                            <Form.Group md="4" className="mb-3" controlId="validationCustom01">
+                                          <Form.Label className="label">Who is your ideal audience?</Form.Label>
+                                          <Form.Control as="textarea" rows={3} placeholder="Tell us more about what you are loking for ..." />
+                                      </Form.Group>
+                                      <Button type="submit" className="view-pricing">{props.btnName} <span> <BsArrowRight /> </span> </Button>
+                              <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                                  <Form.Check className="check-box" disabled type="checkbox" label="Exact Data has permission to contact me with information related to this service." />
+                              </Form.Group>
+                            
+                          </Form>
+                                    )}
+                                </Formik>
+            
         </Container>
     );
 }

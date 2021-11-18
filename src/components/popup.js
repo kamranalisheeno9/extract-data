@@ -12,7 +12,6 @@ import { AiOutlineClose } from "react-icons/ai";
 import { ImArrowLeft2 } from "react-icons/im";
 import { FaGlobeAmericas } from "react-icons/fa";
 import { AiFillClockCircle, AiFillCalendar } from "react-icons/ai";
-import ReactDOM from "react-dom"
 import TimezoneSelect from "react-timezone-select"
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -20,7 +19,6 @@ import 'react-calendar/dist/Calendar.css';
 function Popup(props) {
     const [date, setDate] = useState(new Date());
     const [selectedTimezone, setSelectedTimezone] = useState(Intl.DateTimeFormat().resolvedOptions().timeZone)
-    const [timezone, setTimezone] = useState(Intl.DateTimeFormat().resolvedOptions().timeZone)
 
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
