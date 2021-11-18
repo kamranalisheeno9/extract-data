@@ -1,0 +1,76 @@
+/* width */
+.rating-description::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  /* Track */
+  .rating-description::-webkit-scrollbar-track {
+    background: #039FFF; 
+    border-radius: 4px; 
+    
+  }
+   
+  /* Handle */
+  .rating-description::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 4px; 
+    
+  }
+  
+  /* Handle on hover */
+  .rating-description::-webkit-scrollbar-thumb:hover {
+    background: white;
+    border-radius: 4px;
+}
+
+
+.card-slider{
+     background-color: white;
+     width: 280px;
+     height: 190px;
+     overflow: hidden;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    padding: 15px 15px;
+
+}
+.rating{
+    color: #FF9719;
+}
+.review-name{
+    margin-bottom: 0px;
+}
+.rating-date{
+    font-size: 12px;
+    color: gray;
+    margin-bottom: 0px;
+}
+.rating-description{
+        margin: 10px 0 0;
+    font-size: 14px;
+    line-height: 24px;
+    max-height: 100px;
+    overflow-y: auto;
+    padding-right: 10px;
+    height: 90px;
+}
+.react-multi-carousel-track{
+    margin-left: 100px;
+    margin-right: 100px !important;
+}
+.react-multi-carousel-track  li{
+    width: 300px !important ;
+}
+.react-multiple-carousel__arrow--right{
+    background-color: #0299FF !important;
+}
+.react-multiple-carousel__arrow--left{
+    background-color: #0299FF !important;
+}
+.name-google{
+    display: flex;
+    justify-content: space-between;
+}
+.google-img{
+    width: 25px;
+}

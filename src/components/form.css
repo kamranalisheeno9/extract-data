@@ -1,0 +1,74 @@
+.quote {
+    text-transform: uppercase;
+    color: black;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.form-container {
+    background-color: white;
+    width: 350px;
+    border-radius: 4px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+
+}
+
+.label {
+    color: black;
+}
+
+.view-pricing {
+    box-shadow: none!important;
+    font-size: 18px!important;
+    font-weight: bold!important;
+    color: #fff!important;
+    margin: 0!important;
+    padding: 0.7em 1em !important;
+    padding-bottom: 38px !important;
+    text-align: center !important;
+    width: 100%!important;
+    height: 46px !important;
+    border-radius: 2px !important;
+    background-image: none!important;
+    border: 1px solid rgb(255,132,0) !important;
+    background-color: rgb(255, 132, 0) !important;
+    text-transform: uppercase;
+}
+
+.view-pricing:hover {
+    background: rgb(224, 116, 1) !important;
+}
+.view-pricing span{
+    font-weight: bolder !important;
+}
+.check-box{
+    margin-top: 10px;
+    color: rgb(99, 98, 98);
+    font-size: 14px;
+}
+.form-validate{
+    font-size: 14px;
+}
+.form-validate input,.form-validate textarea{
+    font-size: 14px !important;
+
+}
+@media screen and (max-width: 980px) {
+.form-container{
+    background-color: white;
+    width: 300px;
+    border-radius: 4px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+
+}
+}
+@media screen and (max-width: 768px) {
+    .form-container{
+        background-color: white;
+        width: 100%;
+    
+    }
+}
