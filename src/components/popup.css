@@ -545,8 +545,12 @@ display: block;
     padding-top: 5px !important;
 }
 .time-zone-selector{
+    width: 100% !important;
     margin-top: 40px;
     margin-bottom: 20px;
+}
+.zone-input{
+    width: 100% !important;
 }
 .select-date-text{
     text-align: center;

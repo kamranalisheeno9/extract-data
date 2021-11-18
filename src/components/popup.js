@@ -136,11 +136,12 @@ function Popup(props) {
                                         <div className="time-zone-selector">
                                             <div className="select-wrapper time-flex ">
                                                 <span><FaGlobeAmericas /></span>
-
+                                                <div className="zone-input">
                                                 <TimezoneSelect
                                                     value={selectedTimezone}
                                                     onChange={setSelectedTimezone}
                                                 />
+                                                </div>
                                             </div>
                                         </div>
                                         </div>
